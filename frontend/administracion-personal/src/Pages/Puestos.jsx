@@ -4,7 +4,7 @@ import {
 } from "react";
 import { Link } from "react-router";    
 
-import {useAuth} from "../Context/AuthContext";
+import {useAuth} from "../context/AuthContext";
 import { obtenerPuestosActivos } from "../Services/puestosService";
 
 import "./Puestos.css";

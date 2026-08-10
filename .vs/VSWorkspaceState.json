@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SRV_Core2_OferentesAptos",
-    "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
+    "\\SRV_Core1_ListadoPuestos",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Entities",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Properties",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Repository",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Services",
     "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente",
     "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Entities",
     "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Properties"
   ],
-  "SelectedNode": "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }

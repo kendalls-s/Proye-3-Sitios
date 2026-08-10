@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -134,7 +134,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,12 +154,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\appsettings.json",
               "RelativeDocumentMoniker": "Gateway.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\appsettings.json*",
-              "RelativeToolTip": "Gateway.Api\\appsettings.json*",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\appsettings.json",
+              "RelativeToolTip": "Gateway.Api\\appsettings.json",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-08-10T16:13:39.896Z",
@@ -219,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Gateway.Api\\Properties\\launchSettings.json",
@@ -232,13 +232,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Program.cs",
               "RelativeDocumentMoniker": "Gateway.Api\\Program.cs",
               "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Program.cs",
               "RelativeToolTip": "Gateway.Api\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-10T16:08:30.254Z",
               "EditorCaption": ""

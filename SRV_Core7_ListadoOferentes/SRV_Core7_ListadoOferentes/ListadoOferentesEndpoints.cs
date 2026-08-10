@@ -28,7 +28,13 @@ namespace Core7.ListadoOferentes
                     if (listado is null)
                         return Results.NotFound(new { message = $"No existe un puesto con código '{codigoPuesto}'." });
 
-                    return Results.Ok(listado);
+                    return Results.Ok(new
+                    {
+                        success = true,
+                        statusCode = 200,
+                        message = "Listado de oferentes obtenido correctamente.",
+                        data = listado
+                    });
                 }
                 catch (Exception ex)
                 {

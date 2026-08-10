@@ -72,3 +72,4 @@ desktop.ini
 # Configuracion local con secretos (opcional)
 appsettings.*.local.json
 secrets.json
+

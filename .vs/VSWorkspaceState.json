@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\SRV_Core1_ListadoPuestos",
+
     "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos",
     "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Entities",
     "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Properties",
@@ -12,5 +13,6 @@
     "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Properties"
   ],
   "SelectedNode": "\\.gitignore",
+
   "PreviewInSolutionExplorer": false
 }

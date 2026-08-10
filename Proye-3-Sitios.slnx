@@ -9,6 +9,9 @@
   <Folder Name="/SRV_Core2_OferentesAptos/">
     <Project Path="SRV_Core2_OferentesAptos/SRV_Core2_OferentesAptos/SRV_Core2_OferentesAptos.csproj" />
   </Folder>
+  <Folder Name="/SRV_Core3_CreacionEmpleados/">
+    <Project Path="SRV_Core3_CreacionEmpleados/SRV_Core3_CreacionEmpleados/SRV_Core3_CreacionEmpleados.csproj" />
+  </Folder>
   <Folder Name="/SRV_Core8_DetalleOferente/">
     <Project Path="SRV_Core8_DetalleOferente/SRV_Core8_DetalleOferente/SRV_Core8_DetalleOferente.csproj" />
   </Folder>

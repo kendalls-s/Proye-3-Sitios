@@ -1,0 +1,112 @@
+.detalle-volver {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #1f4e79;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.detalle-volver:hover {
+  text-decoration: underline;
+}
+
+.detalle-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detalle-contenedor h2 {
+  margin-top: 0;
+  color: #173f67;
+}
+
+.detalle-contenedor h3 {
+  color: #334155;
+}
+
+.detalle-datos {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: 10px 18px;
+  margin: 0;
+}
+
+.detalle-datos dt {
+  color: #64748b;
+  font-weight: bold;
+}
+
+.detalle-datos dd {
+  margin: 0;
+  color: #1e293b;
+}
+
+.detalle-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.detalle-columnas p,
+.detalle-contenedor p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabla-detalle {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-detalle th {
+  text-align: left;
+  padding: 12px 16px;
+  background: #1f4e79;
+  color: white;
+  font-size: 14px;
+}
+
+.tabla-detalle td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-detalle tbody tr:hover {
+  background: #f3f6f9;
+}
+
+.contratacion-card {
+  border-left: 4px solid #1f4e79;
+}
+
+.btn-contratar {
+  padding: 12px 22px;
+  background: #1f4e79;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-contratar:hover:not(:disabled) {
+  background: #173f67;
+}
+
+.btn-contratar:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 700px) {
+  .detalle-datos,
+  .detalle-columnas {
+    grid-template-columns: 1fr;
+  }
+}

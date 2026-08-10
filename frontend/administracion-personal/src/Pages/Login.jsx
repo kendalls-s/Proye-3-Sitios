@@ -1,3 +1,5 @@
+import logo from "../assets/Logo.png";
+
 import {
   useEffect,
   useState,
@@ -111,9 +113,7 @@ function Login() {
     }
   };
 
-  // ==========================================
   // VISTA
-  // ==========================================
 
   return (
     <div className="login-page">
@@ -121,10 +121,12 @@ function Login() {
       <div className="login-card">
 
         <div className="login-logo">
-          <div className="login-logo-icon">
-            AP
-          </div>
-        </div>
+  <img
+    src={logo}
+    alt="Logo Administración de Personal"
+    className="login-logo-img"
+  />
+</div>
 
         <h1>
           Administración de Personal

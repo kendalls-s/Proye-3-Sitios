@@ -1,3 +1,4 @@
+import logo from "../assets/Logo.png";
 import { NavLink, Outlet, useNavigate } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import "./MainLayout.css";
@@ -21,8 +22,12 @@ const handleCerrarSesion = () => {
       <header className="app-header">
         <div className="app-logo">
           <div className="logo-icon">
-            AP
-          </div>
+  <img
+    src={logo}
+    alt="Logo Administración de Personal"
+    className="layout-logo-img"
+  />
+</div>
 
           <div>
             <h1>Administración de Personal</h1>

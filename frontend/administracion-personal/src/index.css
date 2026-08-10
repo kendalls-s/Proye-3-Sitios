@@ -138,30 +138,20 @@ button:disabled {
   line-height: 1.6;
 }
 
-
-.login-logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.login-logo-icon {
-  width: 60px;
-  height: 60px;
+.logo-icon {
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 14px;
-
-  background: #173f67;
-  color: white;
-
-  font-size: 20px;
-  font-weight: bold;
 }
 
+.layout-logo-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
 .login-empresa {
   text-align: center;
   color: #64748b;
@@ -170,4 +160,17 @@ button:disabled {
   margin-bottom: 25px;
 
   font-size: 13px;
+}
+
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.login-logo-img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
 }

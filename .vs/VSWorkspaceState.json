@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SRV_Core2_OferentesAptos",
-    "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
-    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente",
-    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Entities",
-    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Properties"
+    "\\SRV_Core1_ListadoPuestos",
+    "\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos"
   ],
-  "SelectedNode": "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
   "PreviewInSolutionExplorer": false
 }

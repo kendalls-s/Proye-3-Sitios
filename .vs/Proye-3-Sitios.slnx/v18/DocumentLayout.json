@@ -1,54 +1,130 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\",
+  "WorkspaceRootPath": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F1E9837-C92F-9BB8-E5A0-8D4BCF47834F}|Gateway.Api\\Gateway.Api.csproj|solutionrelative:gateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\CLAUDE.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\controllers\\tokenpruebacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\controllers\\tokenpruebacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\services\\criptografiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\services\\criptografiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core1_listadopuestos\\srv_core1_listadopuestos\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|solutionrelative:srv_core1_listadopuestos\\srv_core1_listadopuestos\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\auth.api\\auth.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6CCB51E9-DAB4-2CD9-A6C7-0D831C6FB937}|Auth.Api\\Auth.Api.csproj|solutionrelative:auth.api\\auth.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core1_listadopuestos\\srv_core1_listadopuestos\\listadopuestosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|solutionrelative:srv_core1_listadopuestos\\srv_core1_listadopuestos\\listadopuestosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\CLAUDE.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CLAUDE.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core1_listadopuestos\\srv_core1_listadopuestos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|solutionrelative:srv_core1_listadopuestos\\srv_core1_listadopuestos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core1_listadopuestos\\srv_core1_listadopuestos\\srv_core1_listadopuestos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|solutionrelative:srv_core1_listadopuestos\\srv_core1_listadopuestos\\srv_core1_listadopuestos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{206A5382-4C6B-6CBA-A7D3-247783F0D449}|SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core8_detalleoferente\\srv_core8_detalleoferente\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{206A5382-4C6B-6CBA-A7D3-247783F0D449}|SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente.csproj|solutionrelative:srv_core8_detalleoferente\\srv_core8_detalleoferente\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\oferentesaptosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\oferentesaptosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\oferenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\oferenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\bitacorarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\bitacorarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\proye-3-sitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\entities\\oferenteapto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\entities\\oferenteapto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,6 +138,10 @@
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
@@ -70,45 +150,287 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Gateway.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\appsettings.json*",
+              "RelativeToolTip": "Gateway.Api\\appsettings.json*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T16:13:39.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Auth.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Auth.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T15:31:52.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Auth.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:28:40.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Program.cs",
+              "RelativeToolTip": "Auth.Api\\Program.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:05:05.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Auth.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\appsettings.json",
+              "RelativeToolTip": "Auth.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T15:09:28.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Gateway.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Gateway.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T16:14:19.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Gateway.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Gateway.Api\\Program.cs",
+              "RelativeToolTip": "Gateway.Api\\Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T16:08:30.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\JwtService.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Services\\JwtService.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\JwtService.cs",
+              "RelativeToolTip": "Auth.Api\\Services\\JwtService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAIwF0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:40:23.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TokenPruebaController.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Controllers\\TokenPruebaController.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Controllers\\TokenPruebaController.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Controllers\\TokenPruebaController.cs",
+              "RelativeToolTip": "Auth.Api\\Controllers\\TokenPruebaController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:50:42.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\AuthService.cs",
+              "RelativeToolTip": "Auth.Api\\Services\\AuthService.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAkwHYAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:27:39.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\appsettings.json",
+              "RelativeDocumentMoniker": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\appsettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\appsettings.json",
+              "RelativeToolTip": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T15:10:14.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CriptografiaService.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\CriptografiaService.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Services\\CriptografiaService.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Services\\CriptografiaService.cs",
+              "RelativeToolTip": "Auth.Api\\Services\\CriptografiaService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwBYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:04:46.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "Auth.Api\\Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwIkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:04:12.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Repositories\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Repositories\\IUsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Repositories\\IUsuarioRepository.cs",
+              "RelativeToolTip": "Auth.Api\\Repositories\\IUsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T15:03:45.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\DTOs\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\DTOs\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\DTOs\\LoginResponse.cs",
+              "RelativeToolTip": "Auth.Api\\DTOs\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T14:59:29.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Models\\Usuario.cs",
+              "RelativeToolTip": "Auth.Api\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T14:59:11.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\DTOs\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\DTOs\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\DTOs\\LoginRequest.cs",
+              "RelativeToolTip": "Auth.Api\\DTOs\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T14:58:47.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Responses\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "Auth.Api\\Responses\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Responses\\ApiResponse.cs",
+              "RelativeToolTip": "Auth.Api\\Responses\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T14:58:08.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Auth.Api",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Auth.Api.csproj",
+              "RelativeDocumentMoniker": "Auth.Api\\Auth.Api.csproj",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\Auth.Api\\Auth.Api.csproj",
+              "RelativeToolTip": "Auth.Api\\Auth.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-10T14:54:03.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "ListadoPuestosEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
               "RelativeDocumentMoniker": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
               "RelativeToolTip": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\ListadoPuestosEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-10T05:37:52.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 22,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
               "RelativeDocumentMoniker": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
               "RelativeToolTip": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T05:37:48.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T05:37:48.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 23,
               "Title": "SRV_Core1_ListadoPuestos.csproj",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
               "RelativeDocumentMoniker": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
               "RelativeToolTip": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -117,75 +439,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 24,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
               "RelativeDocumentMoniker": "SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
               "RelativeToolTip": "SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-10T05:22:25.193Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T05:22:25.193Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 20,
               "Title": "CLAUDE.md",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\CLAUDE.md",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\CLAUDE.md",
               "RelativeDocumentMoniker": "CLAUDE.md",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\CLAUDE.md",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\CLAUDE.md",
               "RelativeToolTip": "CLAUDE.md",
               "ViewState": "AgIAAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-08-10T05:21:15.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T05:21:15.551Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 21,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\.gitignore",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\.gitignore",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\.gitignore",
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAEsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-08-10T05:20:05.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T05:20:05.796Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 25,
               "Title": "OferentesAptosEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
               "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
               "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T05:07:44.04Z",
+              "WhenOpened": "2026-08-10T05:07:44.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OferenteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T05:07:22.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OferenteRepository.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
-              "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
-              "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T05:07:22.766Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 27,
               "Title": "DbConnectionFactory.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
               "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
               "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\DbConnectionFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -193,11 +512,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 28,
               "Title": "BitacoraRepository.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
               "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
               "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -205,11 +524,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 29,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
               "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -217,11 +536,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 30,
               "Title": "OferenteApto.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
               "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\Proye-3-Sitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
               "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Entities\\OferenteApto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

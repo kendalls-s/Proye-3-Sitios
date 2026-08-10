@@ -7,6 +7,7 @@ import {
 
 import Login from "./pages/Login";
 import Bienvenida from "./pages/Bienvenida";
+import Puestos from "./pages/Puestos";
 
 import MainLayout from "./layouts/MainLayout";
 
@@ -62,7 +63,15 @@ function App() {
               element={<Bienvenida />}
             />
 
+            <Route
+              path="/puestos"
+              element={<Puestos />}
+            />
+
           </Route>
+
+
+          
 
 
           {/* CUALQUIER URL INVÁLIDA */}

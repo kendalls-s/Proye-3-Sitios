@@ -90,9 +90,16 @@ const handleCerrarSesion = () => {
               las páginas de los compañeros.
             */}
 
-            <div className="nav-item nav-disabled">
+            <NavLink
+              to="/puestos"
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-item active"
+                  : "nav-item"
+              }
+            >
               Puestos
-            </div>
+            </NavLink>
 
             <div className="nav-item nav-disabled">
               Oferentes

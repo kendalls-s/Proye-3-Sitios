@@ -1,0 +1,74 @@
+# ---------------------------------------------
+# .gitignore para los microservicios .NET 8
+# (Core2 / Core7 / Core8)
+# ---------------------------------------------
+
+# Resultados de compilacion
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# Archivos de usuario / IDE de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Restauracion de paquetes NuGet
+*.nupkg
+*.snupkg
+packages/
+!packages/build/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de compilacion / MSBuild
+*.dll
+*.exe
+*.pdb
+*.cache
+*.tmp
+*.tmp_proj
+*_i.c
+*_p.c
+*.meta
+*.o
+*.iobj
+*.ipdb
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Resultados de pruebas
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuracion local con secretos (opcional)
+appsettings.*.local.json
+secrets.json

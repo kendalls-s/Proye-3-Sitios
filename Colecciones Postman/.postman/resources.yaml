@@ -1,0 +1,10 @@
+# Use this workspace to collaborate
+workspace:
+  id: 9af66391-1986-4dd6-8923-3c0ba82eacf9
+
+localResources:
+  collections:
+    - ..\Core1_ListadoPuestos.postman_collection.json
+    - ..\Core2_OferentesAptos.postman_collection.json
+    - ..\Core7_ListadoOferentes.postman_collection.json
+    - ..\Core8_DetalleOferente.postman_collection.json

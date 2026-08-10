@@ -1,0 +1,332 @@
+/* ============================= */
+/* ESTRUCTURA GENERAL             */
+/* ============================= */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+
+/* ============================= */
+/* HEADER                         */
+/* ============================= */
+
+.app-header {
+  height: 78px;
+  background: #173f67;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  box-shadow: 0 2px 8px
+    rgba(0, 0, 0, 0.15);
+
+  z-index: 10;
+}
+
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+.logo-icon {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  color: #173f67;
+
+  font-weight: bold;
+  font-size: 17px;
+}
+
+
+.app-logo h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.app-logo span {
+  display: block;
+  margin-top: 3px;
+
+  font-size: 12px;
+  color: #d8e6f4;
+}
+
+
+/* ============================= */
+/* USUARIO                        */
+/* ============================= */
+
+.usuario-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.usuario-icon {
+  font-size: 26px;
+}
+
+
+.usuario-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+
+.usuario-rol {
+  display: block;
+
+  color: #cbdbea;
+  font-size: 11px;
+
+  margin-top: 2px;
+}
+
+
+.btn-salir {
+  width: auto;
+
+  padding: 9px 15px;
+
+  border-radius: 6px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.45);
+
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.btn-salir:hover {
+  background: white;
+  color: #173f67;
+}
+
+
+/* ============================= */
+/* BODY                           */
+/* ============================= */
+
+.app-body {
+  flex: 1;
+
+  display: flex;
+
+  min-height: 0;
+}
+
+
+/* ============================= */
+/* SIDEBAR                        */
+/* ============================= */
+
+.sidebar {
+  width: 235px;
+
+  background: white;
+
+  border-right: 1px solid #e2e8f0;
+
+  padding: 22px 14px;
+}
+
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+.sidebar-titulo {
+  margin: 22px 12px 8px;
+
+  color: #8a98a9;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 12px 14px;
+
+  border-radius: 7px;
+
+  color: #475569;
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+
+.nav-item:hover {
+  background: #eef5fb;
+  color: #173f67;
+}
+
+
+.nav-item.active {
+  background: #e4eff9;
+
+  color: #173f67;
+
+  font-weight: 600;
+
+  border-left: 4px solid #173f67;
+}
+
+
+.nav-disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+
+/* ============================= */
+/* CONTENIDO                      */
+/* ============================= */
+
+.app-content {
+  flex: 1;
+
+  padding: 30px;
+
+  overflow-y: auto;
+}
+
+
+/* ============================= */
+/* FOOTER                         */
+/* ============================= */
+
+.app-footer {
+  min-height: 46px;
+
+  background: white;
+
+  border-top: 1px solid #e2e8f0;
+
+  color: #6b7280;
+
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 12px;
+}
+
+
+/* ============================= */
+/* RESPONSIVE                     */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+  .app-header {
+    height: auto;
+
+    padding: 15px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+
+  .usuario-header {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+
+  .sidebar {
+    width: 70px;
+
+    padding: 15px 8px;
+  }
+
+
+  .nav-item {
+    justify-content: center;
+  }
+
+
+  .nav-item span {
+    font-size: 20px;
+  }
+
+
+  .nav-item {
+    font-size: 0;
+  }
+
+
+  .sidebar-titulo {
+    display: none;
+  }
+
+
+  .app-content {
+    padding: 20px;
+  }
+
+
+  .app-footer {
+    padding: 12px;
+
+    flex-direction: column;
+
+    gap: 4px;
+  }
+
+}

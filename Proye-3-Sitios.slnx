@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Core_Auth/">
+    <Project Path="Auth.Api/Auth.Api.csproj" />
+    <Project Path="Gateway.Api/Gateway.Api.csproj" />
+  </Folder>
+  <Folder Name="/SRV_Core1_ListadoPuestos/">
+    <Project Path="SRV_Core1_ListadoPuestos/SRV_Core1_ListadoPuestos/SRV_Core1_ListadoPuestos.csproj" />
+  </Folder>
+  <Folder Name="/SRV_Core2_OferentesAptos/">
+    <Project Path="SRV_Core2_OferentesAptos/SRV_Core2_OferentesAptos/SRV_Core2_OferentesAptos.csproj" />
+  </Folder>
+  <Folder Name="/SRV_Core8_DetalleOferente/">
+    <Project Path="SRV_Core8_DetalleOferente/SRV_Core8_DetalleOferente/SRV_Core8_DetalleOferente.csproj" />
+  </Folder>
+</Solution>

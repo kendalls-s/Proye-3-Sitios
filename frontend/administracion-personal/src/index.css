@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f6f9;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px
+    rgba(0, 0, 0, 0.12);
+}
+
+.login-card h1 {
+  font-size: 22px;
+  text-align: center;
+  color: #1f4e79;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.campo input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.login-card button {
+  width: 100%;
+
+  padding: 12px;
+
+  background: #1f4e79;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+
+.login-card button:disabled {
+  opacity: 0.6;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+.alerta-error {
+  padding: 10px;
+  background: #f8d7da;
+  color: #842029;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+/* ============================= */
+/* PÁGINAS                        */
+/* ============================= */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+
+.page-header h1 {
+  margin: 0;
+
+  color: #173f67;
+
+  font-size: 27px;
+}
+
+
+.page-header p {
+  margin-top: 6px;
+
+  color: #64748b;
+}
+
+
+.welcome-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0, 0, 0, 0.05);
+}
+
+
+.welcome-card h2 {
+  margin-top: 0;
+
+  color: #173f67;
+}
+
+
+.welcome-card p {
+  color: #64748b;
+
+  line-height: 1.6;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-logo-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+.login-empresa {
+  text-align: center;
+  color: #64748b;
+
+  margin-top: -5px;
+  margin-bottom: 25px;
+
+  font-size: 13px;
+}
+
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.login-logo-img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}

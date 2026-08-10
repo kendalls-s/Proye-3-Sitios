@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SRV_Core2_OferentesAptos",
+    "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
+    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente",
+    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Entities",
+    "\\SRV_Core8_DetalleOferente\\SRV_Core8_DetalleOferente\\Properties"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos",
   "PreviewInSolutionExplorer": false
 }

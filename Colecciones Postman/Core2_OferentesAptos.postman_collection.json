@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Core2 - Oferentes Aptos (Microservicio REST)",
+    "description": "Pruebas del microservicio Core2.\n\nHU Core2: a partir de un codigo de puesto, retorna los oferentes que cumplen los requisitos.\n\nComo usar:\n1. Arranca el proyecto SRV_Core2_OferentesAptos (dotnet run o F5). Queda en http://localhost:5201.\n2. Si tu puerto es otro, cambia la variable baseUrl.\n3. El servicio no requiere autenticacion.\n4. PUE-004 es un puesto con oferentes aptos; PUE-999X no existe (404).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5201",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Oferentes aptos por puesto (PUE-004) - 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/oferentes-aptos/PUE-004",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "oferentes-aptos",
+            "PUE-004"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+              "var body = pm.response.json();",
+              "pm.test('Retorna un arreglo', function () { pm.expect(body).to.be.an('array'); });",
+              "pm.test('Cada oferente trae identificacion y nombre', function () {",
+              "  if (body.length > 0) {",
+              "    pm.expect(body[0]).to.have.property('identificacion');",
+              "    pm.expect(body[0]).to.have.property('nombreCompleto');",
+              "  }",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Puesto inexistente (PUE-999X) - 404",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/oferentes-aptos/PUE-999X",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "oferentes-aptos",
+            "PUE-999X"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 404', function () { pm.response.to.have.status(404); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

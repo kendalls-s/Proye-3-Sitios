@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Core8 - Detalle de Oferente (Microservicio REST)",
+    "description": "Pruebas del microservicio Core8.\n\nHU Core8: a partir de la identificacion de un oferente, retorna todo su detalle (datos personales, ubicacion, correos, telefonos, preparacion academica, experiencia laboral, curriculums y postulaciones).\n\nComo usar:\n1. Arranca SRV_Core8_DetalleOferente. Queda en http://localhost:5208.\n2. El servicio no requiere autenticacion.\n3. 101230456 existe; 000000000 no existe (404).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5208",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Detalle de oferente (101230456) - 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/detalle-oferente/101230456",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "detalle-oferente",
+            "101230456"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+              "var body = pm.response.json();",
+              "pm.test('Trae datos del oferente', function () {",
+              "  pm.expect(body).to.have.property('identificacion');",
+              "  pm.expect(body).to.have.property('nombreCompleto');",
+              "  pm.expect(body).to.have.property('correos');",
+              "  pm.expect(body).to.have.property('postulaciones');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Oferente inexistente (000000000) - 404",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/detalle-oferente/000000000",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "detalle-oferente",
+            "000000000"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 404', function () { pm.response.to.have.status(404); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

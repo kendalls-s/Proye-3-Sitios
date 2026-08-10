@@ -101,9 +101,14 @@ const handleCerrarSesion = () => {
               Puestos
             </NavLink>
 
-            <div className="nav-item nav-disabled">
-              Oferentes
-            </div>
+            <NavLink
+              to="/puestos"
+              className={({ isActive }) =>
+                isActive ? "nav-item active" : "nav-item"
+              }
+            >
+              Oferentes y contratación
+            </NavLink>
 
           </nav>
         </aside>

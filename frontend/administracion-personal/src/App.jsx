@@ -8,6 +8,7 @@ import {
 import Login from "./pages/Login";
 import Bienvenida from "./pages/Bienvenida";
 import Puestos from "./pages/Puestos";
+import DetalleOferente from "./pages/DetalleOferente";
 
 import MainLayout from "./layouts/MainLayout";
 
@@ -66,6 +67,11 @@ function App() {
             <Route
               path="/puestos"
               element={<Puestos />}
+            />
+
+            <Route
+              path="/oferentes/:identificacion/contratar/:codigoPuesto"
+              element={<DetalleOferente />}
             />
 
           </Route>

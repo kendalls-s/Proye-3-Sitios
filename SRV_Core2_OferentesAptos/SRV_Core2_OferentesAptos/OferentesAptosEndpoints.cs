@@ -29,7 +29,13 @@ namespace Core2.OferentesAptos
                     if (!puestoExiste)
                         return Results.NotFound(new { message = $"No existe un puesto con código '{codigoPuesto}'." });
 
-                    return Results.Ok(oferentes);
+                    return Results.Ok(new
+                    {
+                        success = true,
+                        statusCode = 200,
+                        message = "Oferentes aptos obtenidos correctamente.",
+                        data = oferentes
+                    });
                 }
                 catch (Exception ex)
                 {

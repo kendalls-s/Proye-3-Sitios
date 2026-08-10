@@ -28,7 +28,13 @@ namespace Core8.DetalleOferente
                     if (detalle is null)
                         return Results.NotFound(new { message = $"No se encontró un oferente con identificación '{identificacion}'." });
 
-                    return Results.Ok(detalle);
+                    return Results.Ok(new
+                    {
+                        success = true,
+                        statusCode = 200,
+                        message = "Detalle del oferente obtenido correctamente.",
+                        data = detalle
+                    });
                 }
                 catch (Exception ex)
                 {

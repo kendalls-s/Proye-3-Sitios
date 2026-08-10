@@ -36,11 +36,16 @@
             "exec": [
               "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
               "var body = pm.response.json();",
-              "pm.test('Retorna un arreglo', function () { pm.expect(body).to.be.an('array'); });",
+              "pm.test('Envoltorio success/statusCode/message/data', function () {",
+              "  pm.expect(body.success).to.eql(true);",
+              "  pm.expect(body.statusCode).to.eql(200);",
+              "  pm.expect(body).to.have.property('message');",
+              "  pm.expect(body.data).to.be.an('array');",
+              "});",
               "pm.test('Cada oferente trae identificacion y nombre', function () {",
-              "  if (body.length > 0) {",
-              "    pm.expect(body[0]).to.have.property('identificacion');",
-              "    pm.expect(body[0]).to.have.property('nombreCompleto');",
+              "  if (body.data.length > 0) {",
+              "    pm.expect(body.data[0]).to.have.property('identificacion');",
+              "    pm.expect(body.data[0]).to.have.property('nombreCompleto');",
               "  }",
               "});"
             ]

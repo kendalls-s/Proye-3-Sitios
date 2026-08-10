@@ -36,11 +36,17 @@
             "exec": [
               "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
               "var body = pm.response.json();",
+              "pm.test('Envoltorio success/statusCode/message/data', function () {",
+              "  pm.expect(body.success).to.eql(true);",
+              "  pm.expect(body.statusCode).to.eql(200);",
+              "  pm.expect(body).to.have.property('message');",
+              "  pm.expect(body).to.have.property('data');",
+              "});",
               "pm.test('Trae datos del oferente', function () {",
-              "  pm.expect(body).to.have.property('identificacion');",
-              "  pm.expect(body).to.have.property('nombreCompleto');",
-              "  pm.expect(body).to.have.property('correos');",
-              "  pm.expect(body).to.have.property('postulaciones');",
+              "  pm.expect(body.data).to.have.property('identificacion');",
+              "  pm.expect(body.data).to.have.property('nombreCompleto');",
+              "  pm.expect(body.data).to.have.property('correos');",
+              "  pm.expect(body.data).to.have.property('postulaciones');",
               "});"
             ]
           }

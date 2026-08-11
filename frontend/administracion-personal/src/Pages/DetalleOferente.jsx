@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 import { crearEmpleado, obtenerDetalleOferente } from "../Services/oferenteService";
 import "./DetalleOferente.css";
 

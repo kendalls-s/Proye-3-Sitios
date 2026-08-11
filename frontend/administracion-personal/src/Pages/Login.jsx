@@ -10,8 +10,8 @@ import {
   useNavigate,
 } from "react-router";
 
-import { login } from "../services/authService";
-import { useAuth } from "../context/AuthContext";
+import { login } from "../Services/authService";
+import { useAuth } from "../Context/AuthContext";
 
 function Login() {
   const navigate = useNavigate();

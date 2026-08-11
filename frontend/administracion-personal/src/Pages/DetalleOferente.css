@@ -110,3 +110,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+.fecha-ingreso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.fecha-ingreso label {
+  font-weight: bold;
+  color: #334155;
+}
+
+.fecha-ingreso input {
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.acciones-contratacion {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-cancelar {
+  padding: 12px 22px;
+  background: white;
+  color: #1f4e79;
+  border: 1px solid #1f4e79;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancelar:hover:not(:disabled) {
+  background: #f3f6f9;
+}
+
+.btn-cancelar:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

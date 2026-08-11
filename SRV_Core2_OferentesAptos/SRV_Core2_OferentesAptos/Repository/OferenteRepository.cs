@@ -25,18 +25,28 @@ namespace Core2.OferentesAptos.Repository
         }
 
         /// <summary>
-        /// A partir de la vista vw_oferentes_aptos_puesto retorna los oferentes que
-        /// se postularon al puesto y cumplen el 100% de sus requisitos.
+        /// Retorna los oferentes de un puesto. Por indicación del profesor, TODOS
+        /// los oferentes postulados a un puesto se consideran aptos: no se filtra
+        /// por cumplimiento de requisitos ni por estado de la postulación. El
+        /// criterio de aceptación (Core2) solo exige devolver nombre e
+        /// identificación de los oferentes de un puesto, lo cual se cumple.
+        ///
+        /// Nota: se consulta directamente contra las tablas (postulacion / puesto /
+        /// oferente) en lugar de la vista vw_oferentes_aptos_puesto, porque esa
+        /// vista aplica el filtro de requisitos que aquí NO se desea. Así el cambio
+        /// queda contenido en este microservicio y no altera la base compartida.
         /// </summary>
         public async Task<IEnumerable<OferenteApto>> ObtenerAptosPorPuestoAsync(string codigoPuesto)
         {
             const string sql = @"
-SELECT id_oferente     AS IdOferente,
-       identificacion  AS Identificacion,
-       nombre_completo AS NombreCompleto
-FROM vw_oferentes_aptos_puesto
-WHERE codigo_puesto = @Codigo
-ORDER BY nombre_completo;";
+SELECT DISTINCT o.id_oferente     AS IdOferente,
+                o.identificacion  AS Identificacion,
+                o.nombre_completo AS NombreCompleto
+FROM postulacion po
+JOIN puesto   p ON p.id_puesto   = po.id_puesto
+JOIN oferente o ON o.id_oferente = po.id_oferente
+WHERE p.codigo = @Codigo
+ORDER BY o.nombre_completo;";
 
             using var conn = _db.CreateConnection();
             return await conn.QueryAsync<OferenteApto>(sql, new { Codigo = codigoPuesto });

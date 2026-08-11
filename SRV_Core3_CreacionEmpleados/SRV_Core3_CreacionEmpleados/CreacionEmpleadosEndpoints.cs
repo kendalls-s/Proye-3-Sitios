@@ -14,60 +14,54 @@ namespace Core3.CreacionEmpleados
                 .RequireCors("ClientDev");
 
             // POST /empleados
-            // Body: { idOferente, idPuesto, fechaIngreso }
             group.MapPost("", async (
                 CrearEmpleadoRequest request,
                 ICreacionEmpleadosService service,
                 IBitacoraRepository bitacora) =>
             {
-                if (request is null)
-                    return Results.BadRequest(new { message = "El cuerpo de la solicitud es requerido." });
+                if (request is null || string.IsNullOrWhiteSpace(request.Identificacion))
+                    return Results.BadRequest(new { message = "La identificación del oferente es requerida." });
 
-                if (request.IdOferente <= 0)
-                    return Results.BadRequest(new { message = "idOferente es requerido y debe ser mayor que cero." });
-
-                if (request.IdPuesto <= 0)
-                    return Results.BadRequest(new { message = "idPuesto es requerido y debe ser mayor que cero." });
-
-                if (request.FechaIngreso == default)
-                    return Results.BadRequest(new { message = "fechaIngreso es requerida." });
+                if (string.IsNullOrWhiteSpace(request.CodigoPuesto))
+                    return Results.BadRequest(new { message = "El código de puesto es requerido." });
 
                 try
                 {
-                    var resultado = await service.CrearEmpleadoAsync(
-                        request.IdOferente,
-                        request.IdPuesto,
-                        request.FechaIngreso);
+                    var (oferenteExiste, puestoExiste, yaEsEmpleado, empleado) =
+                        await service.ContratarAsync(request.Identificacion, request.CodigoPuesto);
 
-                    if (!resultado.oferenteExiste)
-                        return Results.NotFound(new { message = $"No existe el oferente con id '{request.IdOferente}'." });
+                    if (!oferenteExiste)
+                        return Results.NotFound(new
+                        {
+                            message = $"No existe un oferente con identificación '{request.Identificacion}'."
+                        });
 
-                    if (!resultado.puestoExiste)
-                        return Results.NotFound(new { message = $"No existe el puesto con id '{request.IdPuesto}'." });
+                    if (!puestoExiste)
+                        return Results.NotFound(new
+                        {
+                            message = $"No existe un puesto con código '{request.CodigoPuesto}'."
+                        });
 
-                    if (!resultado.puestoDisponible)
-                        return Results.Conflict(new { message = "El puesto seleccionado no está disponible." });
-
-                    if (resultado.yaEsEmpleado)
-                        return Results.Conflict(new { message = "El oferente seleccionado ya está registrado como empleado." });
+                    if (yaEsEmpleado)
+                        return Results.Conflict(new
+                        {
+                            message = $"El oferente '{request.Identificacion}' ya fue registrado como empleado anteriormente."
+                        });
 
                     return Results.Json(new
                     {
                         success = true,
                         statusCode = 201,
                         message = "Empleado creado con éxito.",
-                        data = resultado.empleado
+                        data = empleado
                     }, statusCode: StatusCodes.Status201Created);
                 }
                 catch (Exception ex)
                 {
                     await bitacora.RegistrarAsync("ERROR", "empleado",
-                        $"Error técnico al crear empleado. Oferente={request.IdOferente}, Puesto={request.IdPuesto}: {ex.Message}");
-
-                    return Results.Problem(
-                        statusCode: 500,
-                        title: "Error al crear el empleado",
-                        detail: ex.Message);
+                        $"Error técnico al crear el empleado a partir del oferente '{request?.Identificacion}': {ex.Message}");
+                    return Results.Problem(statusCode: 500,
+                        title: "Error al crear el empleado", detail: ex.Message);
                 }
             })
             .WithName("CrearEmpleado");

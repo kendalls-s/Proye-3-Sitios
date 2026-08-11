@@ -4,9 +4,9 @@ using Core3.CreacionEmpleados.Repository;
 namespace Core3.CreacionEmpleados.Services
 {
     /// <summary>
-    /// Core3 - crea un empleado a partir de un oferente y puesto existentes.
-    /// La numeración y la acción de personal se generan dentro de la misma
-    /// transacción utilizada para insertar el empleado.
+    /// Core3 - Servicio de creación de empleados. Registra un nuevo empleado a
+    /// partir de un oferente existente y un puesto, generando el número de
+    /// empleado y la acción de personal de contratación correspondiente.
     /// </summary>
     public class CreacionEmpleadosService : ICreacionEmpleadosService
     {
@@ -19,52 +19,53 @@ namespace Core3.CreacionEmpleados.Services
             _bitacora = bitacora;
         }
 
-        public async Task<(bool oferenteExiste, bool puestoExiste, bool puestoDisponible, bool yaEsEmpleado, EmpleadoCreado? empleado)>
-            CrearEmpleadoAsync(int idOferente, int idPuesto, DateTime fechaIngreso)
+        public async Task<(bool oferenteExiste, bool puestoExiste, bool yaEsEmpleado, EmpleadoCreado? empleado)>
+            ContratarAsync(string identificacion, string codigoPuesto)
         {
-            var oferente = await _empleados.ObtenerOferenteAsync(idOferente);
+            var ident = (identificacion ?? string.Empty).Trim();
+            var codigo = (codigoPuesto ?? string.Empty).Trim();
+
+            var oferente = await _empleados.ObtenerOferentePorIdentificacionAsync(ident);
             if (oferente is null)
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: no existe el oferente con id '{idOferente}'.");
-                return (false, false, false, false, null);
+                    $"Creación de empleado rechazada: no existe oferente con identificación '{ident}'.");
+                return (false, false, false, null);
             }
 
-            var puesto = await _empleados.ObtenerPuestoAsync(idPuesto);
+            var puesto = await _empleados.ObtenerPuestoPorCodigoAsync(codigo);
             if (puesto is null)
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: no existe el puesto con id '{idPuesto}'.");
-                return (true, false, false, false, null);
+                    $"Creación de empleado rechazada: no existe puesto con código '{codigo}'.");
+                return (true, false, false, null);
             }
 
-            if (!puesto.Disponible)
+            // Verificación temprana (no autoritativa) para responder rápido en el
+            // caso común; la verificación definitiva ocurre bajo el bloqueo de la
+            // tabla "empleado" dentro de la transacción, evitando condiciones de
+            // carrera cuando dos solicitudes llegan al mismo tiempo.
+            if (await _empleados.OferenteYaEsEmpleadoAsync(oferente.IdOferente))
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: el puesto '{puesto.Codigo}' no está disponible.");
-                return (true, true, false, false, null);
+                    $"Creación de empleado rechazada: el oferente '{ident}' ya fue contratado anteriormente.");
+                return (true, true, true, null);
             }
 
-            if (await _empleados.OferenteYaEsEmpleadoAsync(idOferente))
-            {
-                await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: el oferente '{oferente.Identificacion}' ya es empleado.");
-                return (true, true, true, true, null);
-            }
-
-            var resultado = await _empleados.CrearEmpleadoConBloqueoAsync(oferente, puesto, fechaIngreso.Date);
+            var resultado = await _empleados.CrearEmpleadoConBloqueoAsync(oferente, puesto);
 
             if (resultado.YaEsEmpleado || resultado.Empleado is null)
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada bajo bloqueo: el oferente '{oferente.Identificacion}' ya es empleado.");
-                return (true, true, true, true, null);
+                    $"Creación de empleado rechazada bajo bloqueo: el oferente '{ident}' ya fue contratado anteriormente.");
+                return (true, true, true, null);
             }
 
             await _bitacora.RegistrarAsync("INSERT", "empleado",
-                $"Se crea el empleado {resultado.Empleado.NumeroEmpleado} para el oferente '{oferente.Identificacion}' en el puesto '{puesto.Codigo}'.");
+                $"Se crea el empleado {resultado.Empleado.NumeroEmpleado} a partir del oferente '{ident}' " +
+                $"para el puesto '{codigo}', junto con su acción de personal de contratación.");
 
-            return (true, true, true, false, resultado.Empleado);
+            return (true, true, false, resultado.Empleado);
         }
     }
 }

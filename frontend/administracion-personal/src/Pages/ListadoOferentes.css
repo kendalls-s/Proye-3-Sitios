@@ -1,0 +1,56 @@
+.tabla-oferentes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.tabla-oferentes thead th {
+    text-align: left;
+    padding: 12px 16px;
+    background: #1f4e79;
+    color: white;
+    font-size: 14px;
+}
+
+.tabla-oferentes tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-oferentes tbody tr:hover {
+    background: #f3f6f9;
+}
+
+.enlace-oferente {
+    color: #1f4e79;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.enlace-oferente:hover {
+    text-decoration: underline;
+}
+
+.sin-datos {
+    color: #64748b;
+    font-style: italic;
+    text-align: center;
+    padding: 24px 16px !important;
+}
+
+.acciones-listado {
+    margin-top: 18px;
+}
+
+.btn-regresar {
+    padding: 9px 16px;
+    background: #64748b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-regresar:hover {
+    background: #4b5563;
+}

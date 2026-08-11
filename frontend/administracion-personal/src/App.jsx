@@ -8,6 +8,7 @@ import {
 import Login from "./pages/Login";
 import Bienvenida from "./pages/Bienvenida";
 import Puestos from "./pages/Puestos";
+import ListadoOferentes from "./pages/ListadoOferentes";
 import DetalleOferente from "./pages/DetalleOferente";
 
 import MainLayout from "./layouts/MainLayout";
@@ -69,6 +70,12 @@ function App() {
               element={<Puestos />}
             />
 
+            {/* Core7 - Listado de oferentes aptos para un puesto */}
+            <Route
+              path="/puestos/:codigoPuesto/oferentes"
+              element={<ListadoOferentes />}
+            />
+
             <Route
               path="/oferentes/:identificacion/contratar/:codigoPuesto"
               element={<DetalleOferente />}
@@ -77,7 +84,6 @@ function App() {
           </Route>
 
 
-          
 
 
           {/* CUALQUIER URL INVÁLIDA */}

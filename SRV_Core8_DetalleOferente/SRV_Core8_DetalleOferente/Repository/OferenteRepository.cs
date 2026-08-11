@@ -62,8 +62,7 @@ FROM curriculum_oferente
 WHERE id_oferente = @IdOferente;";
 
             const string sqlPostulaciones = @"
-SELECT po.id_puesto       AS IdPuesto,
-       pu.codigo           AS CodigoPuesto,
+SELECT pu.codigo           AS CodigoPuesto,
        pu.nombre           AS NombrePuesto,
        po.fecha_postulacion AS FechaPostulacion,
        po.estado           AS Estado,

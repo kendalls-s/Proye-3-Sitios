@@ -54,6 +54,7 @@ namespace Core8.DetalleOferente.Entities
 
     public class PostulacionOferente
     {
+        public int IdPuesto { get; set; }
         public string CodigoPuesto { get; set; } = null!;
         public string NombrePuesto { get; set; } = null!;
         public DateTime FechaPostulacion { get; set; }

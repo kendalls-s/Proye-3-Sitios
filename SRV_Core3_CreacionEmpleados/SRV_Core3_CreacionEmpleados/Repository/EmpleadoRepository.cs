@@ -60,6 +60,35 @@ LIMIT 1;";
             return existe.HasValue;
         }
 
+        public async Task<OferenteBasico?> ObtenerOferentePorIdentificacionAsync(string identificacion)
+        {
+            const string sql = @"
+SELECT id_oferente AS IdOferente,
+       identificacion AS Identificacion,
+       nombre_completo AS NombreCompleto
+FROM oferente
+WHERE identificacion = @Identificacion
+LIMIT 1;";
+
+            using var conn = _db.CreateConnection();
+            return await conn.QueryFirstOrDefaultAsync<OferenteBasico>(sql, new { Identificacion = identificacion });
+        }
+
+        public async Task<PuestoBasico?> ObtenerPuestoPorCodigoAsync(string codigoPuesto)
+        {
+            const string sql = @"
+SELECT id_puesto AS IdPuesto,
+       codigo AS Codigo,
+       nombre AS Nombre,
+       disponible AS Disponible
+FROM puesto
+WHERE codigo = @CodigoPuesto
+LIMIT 1;";
+
+            using var conn = _db.CreateConnection();
+            return await conn.QueryFirstOrDefaultAsync<PuestoBasico>(sql, new { CodigoPuesto = codigoPuesto });
+        }
+
         /// <summary>
         /// Inserta empleado + acción de personal en una única transacción.
         /// SELECT ... FOR UPDATE sobre empleado serializa la generación del número

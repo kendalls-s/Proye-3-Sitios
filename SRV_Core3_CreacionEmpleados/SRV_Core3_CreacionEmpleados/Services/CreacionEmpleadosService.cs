@@ -20,21 +20,41 @@ namespace Core3.CreacionEmpleados.Services
         }
 
         public async Task<(bool oferenteExiste, bool puestoExiste, bool puestoDisponible, bool yaEsEmpleado, EmpleadoCreado? empleado)>
-            CrearEmpleadoAsync(int idOferente, int idPuesto, DateTime fechaIngreso)
+            CrearEmpleadoAsync(CrearEmpleadoRequest request)
         {
-            var oferente = await _empleados.ObtenerOferenteAsync(idOferente);
+            OferenteBasico? oferente = null;
+
+            if (request.IdOferente.HasValue && request.IdOferente.Value > 0)
+            {
+                oferente = await _empleados.ObtenerOferenteAsync(request.IdOferente.Value);
+            }
+            else if (!string.IsNullOrWhiteSpace(request.Identificacion))
+            {
+                oferente = await _empleados.ObtenerOferentePorIdentificacionAsync(request.Identificacion!.Trim());
+            }
+
             if (oferente is null)
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: no existe el oferente con id '{idOferente}'.");
+                    $"Creación rechazada: no existe el oferente '{request.Identificacion ?? request.IdOferente?.ToString()}'.");
                 return (false, false, false, false, null);
             }
 
-            var puesto = await _empleados.ObtenerPuestoAsync(idPuesto);
+            PuestoBasico? puesto = null;
+
+            if (request.IdPuesto.HasValue && request.IdPuesto.Value > 0)
+            {
+                puesto = await _empleados.ObtenerPuestoAsync(request.IdPuesto.Value);
+            }
+            else if (!string.IsNullOrWhiteSpace(request.CodigoPuesto))
+            {
+                puesto = await _empleados.ObtenerPuestoPorCodigoAsync(request.CodigoPuesto!.Trim());
+            }
+
             if (puesto is null)
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
-                    $"Creación rechazada: no existe el puesto con id '{idPuesto}'.");
+                    $"Creación rechazada: no existe el puesto '{request.CodigoPuesto ?? request.IdPuesto?.ToString()}'.");
                 return (true, false, false, false, null);
             }
 
@@ -45,14 +65,14 @@ namespace Core3.CreacionEmpleados.Services
                 return (true, true, false, false, null);
             }
 
-            if (await _empleados.OferenteYaEsEmpleadoAsync(idOferente))
+            if (await _empleados.OferenteYaEsEmpleadoAsync(oferente.IdOferente))
             {
                 await _bitacora.RegistrarAsync("ERROR", "empleado",
                     $"Creación rechazada: el oferente '{oferente.Identificacion}' ya es empleado.");
                 return (true, true, true, true, null);
             }
 
-            var resultado = await _empleados.CrearEmpleadoConBloqueoAsync(oferente, puesto, fechaIngreso.Date);
+            var resultado = await _empleados.CrearEmpleadoConBloqueoAsync(oferente, puesto, request.FechaIngreso!.Value.Date);
 
             if (resultado.YaEsEmpleado || resultado.Empleado is null)
             {

@@ -14,7 +14,7 @@ namespace Core3.CreacionEmpleados
                 .RequireCors("ClientDev");
 
             // POST /empleados
-            // Body: { idOferente, idPuesto, fechaIngreso }
+            // Body: { idOferente, identificacion, idPuesto, codigoPuesto, fechaIngreso }
             group.MapPost("", async (
                 CrearEmpleadoRequest request,
                 ICreacionEmpleadosService service,
@@ -23,27 +23,24 @@ namespace Core3.CreacionEmpleados
                 if (request is null)
                     return Results.BadRequest(new { message = "El cuerpo de la solicitud es requerido." });
 
-                if (request.IdOferente <= 0)
-                    return Results.BadRequest(new { message = "idOferente es requerido y debe ser mayor que cero." });
+                if ((request.IdOferente ?? 0) <= 0 && string.IsNullOrWhiteSpace(request.Identificacion))
+                    return Results.BadRequest(new { message = "IdOferente o identificacion es requerido." });
 
-                if (request.IdPuesto <= 0)
-                    return Results.BadRequest(new { message = "idPuesto es requerido y debe ser mayor que cero." });
+                if ((request.IdPuesto ?? 0) <= 0 && string.IsNullOrWhiteSpace(request.CodigoPuesto))
+                    return Results.BadRequest(new { message = "IdPuesto o codigoPuesto es requerido." });
 
-                if (request.FechaIngreso == default)
+                if (!request.FechaIngreso.HasValue || request.FechaIngreso.Value == default)
                     return Results.BadRequest(new { message = "fechaIngreso es requerida." });
 
                 try
                 {
-                    var resultado = await service.CrearEmpleadoAsync(
-                        request.IdOferente,
-                        request.IdPuesto,
-                        request.FechaIngreso);
+                    var resultado = await service.CrearEmpleadoAsync(request);
 
                     if (!resultado.oferenteExiste)
-                        return Results.NotFound(new { message = $"No existe el oferente con id '{request.IdOferente}'." });
+                        return Results.NotFound(new { message = $"No existe el oferente '{request.Identificacion ?? request.IdOferente?.ToString() }'." });
 
                     if (!resultado.puestoExiste)
-                        return Results.NotFound(new { message = $"No existe el puesto con id '{request.IdPuesto}'." });
+                        return Results.NotFound(new { message = $"No existe el puesto '{request.CodigoPuesto ?? request.IdPuesto?.ToString() }'." });
 
                     if (!resultado.puestoDisponible)
                         return Results.Conflict(new { message = "El puesto seleccionado no está disponible." });

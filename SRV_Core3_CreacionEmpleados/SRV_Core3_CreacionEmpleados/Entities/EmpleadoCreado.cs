@@ -20,14 +20,16 @@ namespace Core3.CreacionEmpleados.Entities
 
     /// <summary>
     /// Body de POST /empleados.
-    /// Contiene toda la información necesaria para insertar el registro de empleado
-    /// que no es generada automáticamente por la base de datos/servicio.
+    /// Contiene la información necesaria para crear un empleado a partir de un
+    /// oferente y un puesto. Puede recibir ids internos o identificacion/codigoPuesto.
     /// </summary>
     public class CrearEmpleadoRequest
     {
-        public int IdOferente { get; set; }
-        public int IdPuesto { get; set; }
-        public DateTime FechaIngreso { get; set; }
+        public int? IdOferente { get; set; }
+        public string? Identificacion { get; set; }
+        public int? IdPuesto { get; set; }
+        public string? CodigoPuesto { get; set; }
+        public DateTime? FechaIngreso { get; set; }
     }
 
     public class OferenteBasico

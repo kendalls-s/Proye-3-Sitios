@@ -21,6 +21,7 @@ function DetalleOferente() {
   const [errorCarga, setErrorCarga] = useState("");
   const [contratando, setContratando] = useState(false);
   const [errorContratacion, setErrorContratacion] = useState("");
+  const [fechaIngreso, setFechaIngreso] = useState(() => new Date().toISOString().slice(0, 10));
 
   useEffect(() => {
     let cancelado = false;
@@ -55,7 +56,21 @@ function DetalleOferente() {
     setErrorContratacion("");
 
     try {
-      await crearEmpleado(token, identificacion, codigoPuesto);
+      const postulacion = detalle?.postulaciones?.find(
+        (item) => item.codigoPuesto === codigoPuesto
+      );
+
+      if (!postulacion?.idPuesto || !detalle?.idOferente) {
+        throw new Error(
+          "No fue posible determinar el oferente o el puesto seleccionado para crear el empleado."
+        );
+      }
+
+      await crearEmpleado(token, {
+        idOferente: detalle.idOferente,
+        idPuesto: postulacion.idPuesto,
+        fechaIngreso,
+      });
       navigate("/puestos", {
         state: { mensajeExito: "Empleado creado con éxito" },
       });
@@ -196,17 +211,37 @@ function DetalleOferente() {
           <section className="welcome-card contratacion-card">
             <h2>Contratación</h2>
             <p>El oferente será convertido en empleado para el puesto seleccionado.</p>
+            <div className="fecha-ingreso">
+              <label htmlFor="fechaIngreso">Fecha de ingreso</label>
+              <input
+                id="fechaIngreso"
+                type="date"
+                value={fechaIngreso}
+                onChange={(e) => setFechaIngreso(e.target.value)}
+                disabled={contratando}
+              />
+            </div>
             {errorContratacion && (
               <div className="alerta-error">{errorContratacion}</div>
             )}
-            <button
-              className="btn-contratar"
-              type="button"
-              onClick={handleContratar}
-              disabled={contratando}
-            >
-              {contratando ? "Creando empleado..." : "Crear empleado"}
-            </button>
+            <div className="acciones-contratacion">
+              <button
+                className="btn-contratar"
+                type="button"
+                onClick={handleContratar}
+                disabled={contratando || !fechaIngreso}
+              >
+                {contratando ? "Creando empleado..." : "Crear empleado"}
+              </button>
+              <button
+                className="btn-cancelar"
+                type="button"
+                onClick={() => navigate("/puestos")}
+                disabled={contratando}
+              >
+                Cancelar
+              </button>
+            </div>
           </section>
         </div>
       )}

@@ -53,13 +53,22 @@ export async function obtenerDetalleOferente(token, identificacion) {
   return data?.data ?? data;
 }
 
-export async function crearEmpleado(token, identificacion, codigoPuesto) {
+/**
+ * Core3 recibe en el cuerpo todos los datos necesarios para insertar empleado:
+ * idOferente, idPuesto y fechaIngreso. El número de empleado y la acción de
+ * contratación son generados por el servicio.
+ */
+export async function crearEmpleado(token, { idOferente, idPuesto, fechaIngreso }) {
   const data = await requestJson(`${API_URL}/gateway/core3/empleados`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ identificacion, codigoPuesto }),
+    body: JSON.stringify({
+      idOferente,
+      idPuesto,
+      fechaIngreso,
+    }),
   });
 
   return data?.data ?? data;

@@ -4,6 +4,25 @@ using Core3.CreacionEmpleados.Services;
 
 namespace Core3.CreacionEmpleados
 {
+    /// <summary>
+    /// Core3 - "Yo como administrador del sistema quiero un servicio que permita
+    /// registrar un empleado en el sistema".
+    ///
+    /// Web service REST que crea un nuevo empleado a partir de un oferente
+    /// existente y un puesto. Recibe en el cuerpo la información requerida para
+    /// la contratación (identificación del oferente + código de puesto) y a
+    /// partir de ella copia toda la información del oferente hacia las
+    /// estructuras de empleado, genera el número de empleado y registra la
+    /// acción de personal de contratación.
+    ///
+    /// Contrato REST:
+    ///   POST /empleados
+    ///     201 Created  -> empleado creado (incluye cabecera Location).
+    ///     400 Bad Request -> faltan datos requeridos en el cuerpo.
+    ///     404 Not Found   -> el oferente o el puesto no existen.
+    ///     409 Conflict    -> el oferente ya había sido contratado.
+    ///     500 Problem     -> error técnico (queda registrado en bitácora).
+    /// </summary>
     public static class CreacionEmpleadosEndpoints
     {
         public static void MapCreacionEmpleadosEndpoints(this IEndpointRouteBuilder routes)
@@ -48,13 +67,18 @@ namespace Core3.CreacionEmpleados
                             message = $"El oferente '{request.Identificacion}' ya fue registrado como empleado anteriormente."
                         });
 
-                    return Results.Json(new
+                    // 201 Created con cabecera Location apuntando al recurso creado.
+                    // Se conserva el mismo envelope { success, statusCode, message, data }
+                    // que ya consume el cliente React.
+                    var ubicacion = $"/empleados/{empleado!.NumeroEmpleado}";
+
+                    return Results.Created(ubicacion, new
                     {
                         success = true,
                         statusCode = 201,
                         message = "Empleado creado con éxito.",
                         data = empleado
-                    }, statusCode: StatusCodes.Status201Created);
+                    });
                 }
                 catch (Exception ex)
                 {

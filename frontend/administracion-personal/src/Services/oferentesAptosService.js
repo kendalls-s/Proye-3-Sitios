@@ -5,11 +5,11 @@ async function requestJson(url, options = {}) {
 
   try {
     response = await fetch(url, {
+      ...options,
       headers: {
         "Content-Type": "application/json",
         ...(options.headers || {}),
       },
-      ...options,
     });
   } catch {
     const error = new Error(

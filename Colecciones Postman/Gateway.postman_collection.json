@@ -1,0 +1,901 @@
+{
+  "info": {
+    "name": "Gateway - Reverse Proxy YARP (Microservicio de entrada)",
+    "description": "Pruebas del Gateway.Api. No es un microservicio de negocio: es un reverse proxy (YARP) que centraliza el acceso a Auth.Api, Core1, Core2, Core3 y Core8 detras de autenticacion JWT, reescribiendo las rutas /gateway/{servicio}/... hacia la ruta real de cada microservicio.\n\nValidaciones cubiertas (segun appsettings.json -> ReverseProxy):\n- 200 login a traves del gateway (ruta 'auth-login-route', AuthorizationPolicy = Anonymous, no requiere token).\n- 401 login con credenciales invalidas a traves del gateway (el gateway solo reenvia; la logica de negocio la resuelve Auth.Api).\n- 401 al llamar cualquier ruta protegida ('auth-protected-route', 'core1-route', 'core2-route', 'core3-route', 'core8-route', todas con AuthorizationPolicy = Default) sin header Authorization.\n- 401 con header Authorization mal formado (sin esquema Bearer).\n- 401 con token JWT invalido/manipulado (firma corrupta).\n- 401 con token JWT expirado (firmado localmente en el pre-request script con la misma llave configurada en appsettings.json de Auth.Api/Gateway.Api, para no depender de esperar el vencimiento real).\n- 200 con token JWT valido en cada ruta protegida, confirmando ademas que el PathRemovePrefix/PathPattern reescribe correctamente hacia el microservicio real (mismo envoltorio success/statusCode/message/data que las colecciones de cada Core).\n- Se preservan los codigos de error propios de cada microservicio (404/409/400) cuando se llega con un token valido, demostrando que el Gateway no altera la logica de negocio, solo la autenticacion.\n- 404 para un servicio que NO tiene ruta configurada en el Gateway (Core7 no aparece en ReverseProxy:Routes de appsettings.json), a diferencia de los demas Core que si estan expuestos.\n\nComo usar:\n1. Arranca Auth.Api usando el perfil HTTPS (el cluster 'auth-cluster' apunta a https://localhost:7139/). Con Visual Studio selecciona el perfil 'https'; por CLI: dotnet run --launch-profile https.\n2. Arranca SRV_Core1_ListadoPuestos (5200), SRV_Core2_OferentesAptos (5201), SRV_Core3_CreacionEmpleados (5203) y SRV_Core8_DetalleOferente (5208) en HTTP normal.\n3. Arranca Gateway.Api (perfil https). Queda en https://localhost:7000 (y http://localhost:5000, redirige a https).\n4. Como el certificado de desarrollo es autofirmado, confia en el con 'dotnet dev-certs https --trust' o desactiva la verificacion SSL en Postman (Settings > General > SSL certificate verification) solo para pruebas locales.\n5. Corre primero la carpeta '1. Login a traves del Gateway' para que el token quede guardado en la variable de coleccion {{token}} y sea reutilizado por el resto de las carpetas.\n6. Ajusta codigoPuesto/identificacionOferente a datos reales de tu base de datos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:7000",
+      "type": "string"
+    },
+    {
+      "key": "usuarioValido",
+      "value": "admin",
+      "type": "string"
+    },
+    {
+      "key": "passwordValido",
+      "value": "Admin123*",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "codigoPuesto",
+      "value": "PUE-004",
+      "type": "string"
+    },
+    {
+      "key": "identificacionOferente",
+      "value": "101230456",
+      "type": "string"
+    },
+    {
+      "key": "jwtKey",
+      "value": "12345678901234567890123456789012",
+      "type": "string"
+    },
+    {
+      "key": "jwtIssuer",
+      "value": "AdministracionPersonal",
+      "type": "string"
+    },
+    {
+      "key": "jwtAudience",
+      "value": "AdministracionPersonalReact",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Login a traves del Gateway (ruta anonima)",
+      "item": [
+        {
+          "name": "1.1 POST /gateway/auth/login - 200 (guarda token)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioValido}}\",\n  \"password\": \"{{passwordValido}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 (ruta Anonymous, no requiere token)', function () { pm.response.to.have.status(200); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Envoltorio con token (proxy a Auth.Api /api/auth/login)', function () {",
+                  "  pm.expect(body.success).to.eql(true);",
+                  "  pm.expect(body.statusCode).to.eql(200);",
+                  "  pm.expect(body.data.token).to.be.a('string').and.not.empty;",
+                  "});",
+                  "pm.collectionVariables.set('token', body.data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.2 POST /gateway/auth/login credenciales invalidas - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioValido}}\",\n  \"password\": \"ClaveIncorrecta1*\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 (el Gateway reenvia el error de negocio de Auth.Api)', function () { pm.response.to.have.status(401); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de credenciales incorrectas', function () {",
+                  "  pm.expect(body.message).to.eql('Usuario y/o contraseña incorrectos.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Validaciones de autenticacion (rutas protegidas)",
+      "item": [
+        {
+          "name": "2.1 GET /gateway/core1/puestos-activos sin token - 401",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core1/puestos-activos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core1",
+                "puestos-activos"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 (AuthorizationPolicy = Default exige usuario autenticado)', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.2 GET /gateway/core1/puestos-activos con header Authorization mal formado - 401",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core1/puestos-activos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core1",
+                "puestos-activos"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 (falta el esquema Bearer)', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.3 GET /gateway/core1/puestos-activos con token manipulado (firma invalida) - 401",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenManipulado}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core1/puestos-activos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core1",
+                "puestos-activos"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var tokenValido = pm.collectionVariables.get('token') || 'a.b.c';",
+                  "var partes = tokenValido.split('.');",
+                  "var firmaOriginal = partes[2] || 'firma';",
+                  "var firmaManipulada = firmaOriginal.split('').reverse().join('') + 'X';",
+                  "var tokenManipulado = partes[0] + '.' + partes[1] + '.' + firmaManipulada;",
+                  "pm.collectionVariables.set('tokenManipulado', tokenManipulado);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401 (firma JWT invalida)', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.4 GET /gateway/core1/puestos-activos con token expirado - 401",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenExpirado}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core1/puestos-activos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core1",
+                "puestos-activos"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Genera localmente un JWT ya vencido, firmado con la misma llave HS256",
+                  "// configurada en appsettings.json (Jwt:Key), para no depender de esperar",
+                  "// el vencimiento real del token. Si el sandbox de Postman no trae crypto-js,",
+                  "// el test de este request se marca como omitido en vez de romper la corrida.",
+                  "try {",
+                  "  var CryptoJS = require('crypto-js');",
+                  "",
+                  "  function base64url(wordArray) {",
+                  "    var base64 = CryptoJS.enc.Base64.stringify(wordArray);",
+                  "    return base64.replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '');",
+                  "  }",
+                  "",
+                  "  var header = { alg: 'HS256', typ: 'JWT' };",
+                  "  var ahora = Math.floor(Date.now() / 1000);",
+                  "  var payload = {",
+                  "    sub: '1',",
+                  "    unique_name: 'admin',",
+                  "    iss: pm.collectionVariables.get('jwtIssuer'),",
+                  "    aud: pm.collectionVariables.get('jwtAudience'),",
+                  "    iat: ahora - 7200,",
+                  "    exp: ahora - 3600",
+                  "  };",
+                  "",
+                  "  var headerB64 = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(header)));",
+                  "  var payloadB64 = base64url(CryptoJS.enc.Utf8.parse(JSON.stringify(payload)));",
+                  "  var data = headerB64 + '.' + payloadB64;",
+                  "",
+                  "  var key = CryptoJS.enc.Utf8.parse(pm.collectionVariables.get('jwtKey'));",
+                  "  var firma = base64url(CryptoJS.HmacSHA256(data, key));",
+                  "",
+                  "  pm.collectionVariables.set('tokenExpirado', data + '.' + firma);",
+                  "  pm.collectionVariables.set('tokenExpiradoOk', 'true');",
+                  "} catch (e) {",
+                  "  console.log('No se pudo generar el token expirado localmente: ' + e.message);",
+                  "  pm.collectionVariables.set('tokenExpirado', 'token.invalido.sinfirma');",
+                  "  pm.collectionVariables.set('tokenExpiradoOk', 'false');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.collectionVariables.get('tokenExpiradoOk') === 'true') {",
+                  "  pm.test('Status 401 (token expirado, ValidateLifetime = true)', function () { pm.response.to.have.status(401); });",
+                  "} else {",
+                  "  pm.test.skip('No se pudo firmar el token expirado en este entorno de Postman (sin crypto-js); revisa manualmente.');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Core1 vía Gateway (/gateway/core1)",
+      "item": [
+        {
+          "name": "3.1 GET /gateway/core1/puestos-activos con token valido - 200",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core1/puestos-activos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core1",
+                "puestos-activos"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "var body = pm.response.json();",
+                  "pm.test('PathRemovePrefix reescribe hacia /puestos-activos de Core1', function () {",
+                  "  pm.expect(body.success).to.eql(true);",
+                  "  pm.expect(body.statusCode).to.eql(200);",
+                  "  pm.expect(body.data).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Core2 vía Gateway (/gateway/core2)",
+      "item": [
+        {
+          "name": "4.1 GET /gateway/core2/oferentes-aptos/{{codigoPuesto}} con token valido - 200",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core2/oferentes-aptos/{{codigoPuesto}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core2",
+                "oferentes-aptos",
+                "{{codigoPuesto}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Envoltorio de Core2 preservado a traves del proxy', function () {",
+                  "  pm.expect(body.success).to.eql(true);",
+                  "  pm.expect(body.data).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.2 GET /gateway/core2/oferentes-aptos/PUE-999X con token valido - 404 (logica de Core2 preservada)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core2/oferentes-aptos/PUE-999X",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core2",
+                "oferentes-aptos",
+                "PUE-999X"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 (el Gateway no altera los codigos de negocio)', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.3 GET /gateway/core2/oferentes-aptos/PUE-004 sin token - 401",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core2/oferentes-aptos/PUE-004",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core2",
+                "oferentes-aptos",
+                "PUE-004"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Core3 vía Gateway (/gateway/core3)",
+      "item": [
+        {
+          "name": "5.1 POST /gateway/core3/empleados sin token - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificacion\": \"{{identificacionOferente}}\",\n  \"codigoPuesto\": \"{{codigoPuesto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core3/empleados",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core3",
+                "empleados"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.2 POST /gateway/core3/empleados con token valido - 201",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificacion\": \"{{identificacionOferente}}\",\n  \"codigoPuesto\": \"{{codigoPuesto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core3/empleados",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core3",
+                "empleados"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', function () { pm.response.to.have.status(201); });",
+                  "var body = pm.response.json();",
+                  "pm.test('PathRemovePrefix reescribe hacia POST /empleados de Core3', function () {",
+                  "  pm.expect(body.success).to.eql(true);",
+                  "  pm.expect(body.statusCode).to.eql(201);",
+                  "  pm.expect(body.data).to.have.property('numeroEmpleado');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.3 POST /gateway/core3/empleados repetir (oferente ya contratado) con token valido - 409",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificacion\": \"{{identificacionOferente}}\",\n  \"codigoPuesto\": \"{{codigoPuesto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core3/empleados",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core3",
+                "empleados"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 409 (logica de negocio de Core3 preservada)', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.4 POST /gateway/core3/empleados sin identificacion, con token valido - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificacion\": \"\",\n  \"codigoPuesto\": \"{{codigoPuesto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core3/empleados",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core3",
+                "empleados"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. Core8 vía Gateway (/gateway/core8)",
+      "item": [
+        {
+          "name": "6.1 GET /gateway/core8/detalle-oferente/{{identificacionOferente}} sin token - 401",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core8/detalle-oferente/{{identificacionOferente}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core8",
+                "detalle-oferente",
+                "{{identificacionOferente}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.2 GET /gateway/core8/detalle-oferente/{{identificacionOferente}} con token valido - 200",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core8/detalle-oferente/{{identificacionOferente}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core8",
+                "detalle-oferente",
+                "{{identificacionOferente}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "var body = pm.response.json();",
+                  "pm.test('PathRemovePrefix reescribe hacia /detalle-oferente de Core8', function () {",
+                  "  pm.expect(body.success).to.eql(true);",
+                  "  pm.expect(body.data).to.have.property('identificacion');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.3 GET /gateway/core8/detalle-oferente/000000000 con token valido - 404",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core8/detalle-oferente/000000000",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core8",
+                "detalle-oferente",
+                "000000000"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 (logica de negocio de Core8 preservada)', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7. Ruta protegida de Auth vía Gateway (/gateway/auth/protegido)",
+      "item": [
+        {
+          "name": "7.1 GET /gateway/auth/protegido sin token - 401",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/auth/protegido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "auth",
+                "protegido"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "7.2 GET /gateway/auth/protegido con token valido - 200",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/auth/protegido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "auth",
+                "protegido"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200 (PathPattern reescribe hacia /api/auth/protegido)', function () { pm.response.to.have.status(200); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Token valido, claims presentes', function () {",
+                  "  pm.expect(body.message).to.eql('Token válido.');",
+                  "  pm.expect(body.data).to.have.property('idUsuario');",
+                  "  pm.expect(body.data).to.have.property('usuario');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "8. Servicio sin ruta configurada en el Gateway",
+      "item": [
+        {
+          "name": "8.1 GET /gateway/core7/listado-oferentes/PUE-004 con token valido - 404 (Core7 no esta en ReverseProxy:Routes)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/gateway/core7/listado-oferentes/PUE-004",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gateway",
+                "core7",
+                "listado-oferentes",
+                "PUE-004"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 404 (ninguna ruta de YARP coincide con /gateway/core7)', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

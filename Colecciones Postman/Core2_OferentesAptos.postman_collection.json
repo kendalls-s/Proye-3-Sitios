@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Core2 - Oferentes Aptos (Microservicio REST)",
-    "description": "Pruebas del microservicio Core2.\n\nHU Core2: a partir de un codigo de puesto, retorna los oferentes que cumplen los requisitos.\n\nComo usar:\n1. Arranca el proyecto SRV_Core2_OferentesAptos (dotnet run o F5). Queda en http://localhost:5201.\n2. Si tu puerto es otro, cambia la variable baseUrl.\n3. El servicio no requiere autenticacion.\n4. PUE-004 es un puesto con oferentes aptos; PUE-999X no existe (404).",
+    "description": "Pruebas del microservicio Core2.\n\nHU Core2: a partir de un codigo de puesto, retorna los oferentes que cumplen los requisitos.\n\nValidaciones cubiertas:\n- 200 puesto existente con oferentes aptos.\n- 404 puesto inexistente.\n- 400 codigo de puesto en blanco (unicamente espacios), segun el guard IsNullOrWhiteSpace del endpoint.\n\nComo usar:\n1. Arranca el proyecto SRV_Core2_OferentesAptos (dotnet run o F5). Queda en http://localhost:5201.\n2. Si tu puerto es otro, cambia la variable baseUrl.\n3. El servicio no requiere autenticacion.\n4. PUE-004 es un puesto con oferentes aptos; PUE-999X no existe (404).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -75,7 +75,43 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test('Status 404', function () { pm.response.to.have.status(404); });"
+              "pm.test('Status 404', function () { pm.response.to.have.status(404); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de puesto inexistente', function () {",
+              "  pm.expect(body.message).to.include('PUE-999X');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Codigo de puesto en blanco (solo espacios) - 400",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/oferentes-aptos/%20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "oferentes-aptos",
+            "%20"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400', function () { pm.response.to.have.status(400); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de codigo requerido', function () {",
+              "  pm.expect(body.message).to.eql('El código de puesto es requerido.');",
+              "});"
             ]
           }
         }

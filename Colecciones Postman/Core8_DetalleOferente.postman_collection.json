@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Core8 - Detalle de Oferente (Microservicio REST)",
-    "description": "Pruebas del microservicio Core8.\n\nHU Core8: a partir de la identificacion de un oferente, retorna todo su detalle (datos personales, ubicacion, correos, telefonos, preparacion academica, experiencia laboral, curriculums y postulaciones).\n\nComo usar:\n1. Arranca SRV_Core8_DetalleOferente. Queda en http://localhost:5208.\n2. El servicio no requiere autenticacion.\n3. 101230456 existe; 000000000 no existe (404).",
+    "description": "Pruebas del microservicio Core8.\n\nHU Core8: a partir de la identificacion de un oferente, retorna todo su detalle (datos personales, ubicacion, correos, telefonos, preparacion academica, experiencia laboral, curriculums y postulaciones).\n\nValidaciones cubiertas:\n- 200 oferente existente, con verificacion de las secciones del detalle (correos, postulaciones, etc.).\n- 404 oferente inexistente.\n- 400 identificacion en blanco (unicamente espacios), segun el guard IsNullOrWhiteSpace del endpoint.\n\nComo usar:\n1. Arranca SRV_Core8_DetalleOferente. Queda en http://localhost:5208.\n2. El servicio no requiere autenticacion.\n3. 101230456 existe; 000000000 no existe (404).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -75,7 +75,43 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test('Status 404', function () { pm.response.to.have.status(404); });"
+              "pm.test('Status 404', function () { pm.response.to.have.status(404); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de oferente inexistente', function () {",
+              "  pm.expect(body.message).to.include('000000000');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Identificacion en blanco (solo espacios) - 400",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/detalle-oferente/%20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "detalle-oferente",
+            "%20"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400', function () { pm.response.to.have.status(400); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de identificacion requerida', function () {",
+              "  pm.expect(body.message).to.eql('La identificación es requerida.');",
+              "});"
             ]
           }
         }

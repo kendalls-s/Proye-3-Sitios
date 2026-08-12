@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Core3 - Creación de Empleados (Microservicio REST)",
-    "description": "Pruebas del microservicio Core3.\\n\\nHU Core3: a partir de la identificacion de un oferente existente y el codigo de un puesto, crea un empleado (generando su numero de empleado) y su accion de personal de contratacion.\\n\\nComo usar:\\n1. NO ejecutes migraciones: Core3 utiliza la misma base de datos y el esquema existente de MAIN.\\n2. Arranca el proyecto SRV_Core3_CreacionEmpleados (dotnet run o F5). Queda en http://localhost:5203.\\n3. Si tu puerto es otro, cambia la variable baseUrl.\\n4. El servicio no requiere autenticacion.\\n5. Ajusta identificacionOferente y codigoPuesto a datos reales existentes en tu base de datos antes de correr el request 1.\\n6. Vuelve a correr el request 1 con la misma identificacion para comprobar el 409 (oferente ya contratado).",
+    "description": "Pruebas del microservicio Core3.\\n\\nHU Core3: a partir de la identificacion de un oferente existente y el codigo de un puesto, crea un empleado (generando su numero de empleado) y su accion de personal de contratacion.\\n\\nValidaciones cubiertas:\\n- 201 creacion exitosa del empleado.\\n- 409 oferente ya contratado previamente.\\n- 404 oferente inexistente.\\n- 404 puesto inexistente.\\n- 400 identificacion ausente/vacia.\\n- 400 identificacion solo con espacios.\\n- 400 codigoPuesto ausente/vacio.\\n- 400 cuerpo de la peticion vacio (sin campos).\\n\\nComo usar:\\n1. NO ejecutes migraciones: Core3 utiliza la misma base de datos y el esquema existente de MAIN.\\n2. Arranca el proyecto SRV_Core3_CreacionEmpleados (dotnet run o F5). Queda en http://localhost:5203.\\n3. Si tu puerto es otro, cambia la variable baseUrl.\\n4. El servicio no requiere autenticacion.\\n5. Ajusta identificacionOferente y codigoPuesto a datos reales existentes en tu base de datos antes de correr el request 1.\\n6. Vuelve a correr el request 1 con la misma identificacion para comprobar el 409 (oferente ya contratado).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -208,7 +208,127 @@
           "script": {
             "type": "text/javascript",
             "exec": [
+              "pm.test('Status 400', function () { pm.response.to.have.status(400); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de identificacion requerida', function () {",
+              "  pm.expect(body.message).to.eql('La identificación del oferente es requerida.');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Body invalido (identificacion solo espacios) - 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identificacion\": \"   \",\n  \"codigoPuesto\": \"{{codigoPuesto}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/empleados",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "empleados"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
               "pm.test('Status 400', function () { pm.response.to.have.status(400); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Body invalido (sin codigoPuesto) - 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identificacion\": \"{{identificacionOferente}}\",\n  \"codigoPuesto\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/empleados",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "empleados"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400', function () { pm.response.to.have.status(400); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de codigo de puesto requerido', function () {",
+              "  pm.expect(body.message).to.eql('El código de puesto es requerido.');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Body vacio (sin campos) - 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/empleados",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "empleados"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400', function () { pm.response.to.have.status(400); });",
+              "var body = pm.response.json();",
+              "pm.test('Mensaje de identificacion requerida', function () {",
+              "  pm.expect(body.message).to.eql('La identificación del oferente es requerida.');",
+              "});"
             ]
           }
         }

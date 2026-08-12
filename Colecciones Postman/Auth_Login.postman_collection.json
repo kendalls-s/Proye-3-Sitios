@@ -1,0 +1,650 @@
+{
+  "info": {
+    "name": "Auth - Autenticacion (Microservicio REST)",
+    "description": "Pruebas del microservicio Auth.Api.\n\nHU Auth: como usuario del sistema quiero iniciar sesion con usuario y contraseña para obtener un token JWT y mis roles.\n\nValidaciones cubiertas:\n- 200 login exitoso (usuario y contraseña correctos, usuario activo).\n- 400 usuario y/o password ausentes o vacios (validacion automatica de ModelState por [Required] en LoginRequest).\n- 400 usuario y/o password en blanco (solo espacios): pasan el [Required] pero son rechazados por la validacion de negocio en AuthService.\n- 401 usuario inexistente.\n- 401 password incorrecto (usuario existente).\n- 403 usuario con estado BLOQUEADO.\n- 403 usuario con estado INACTIVO.\n- 403 bloqueo automatico tras 3 intentos fallidos consecutivos (MaxIntentos = 3 en AuthService).\n\nComo usar:\n1. Arranca el proyecto Auth.Api (dotnet run o F5). Queda en http://localhost:5139.\n2. Si tu puerto es otro, cambia la variable baseUrl.\n3. Ajusta las variables usuarioValido/passwordValido con credenciales reales activas en tu base de datos.\n4. Para probar 401 por password incorrecto y 403 por bloqueo, usa un usuario de prueba desechable (usuarioIntentosFallidos) ya que el endpoint incrementa intentos_login en cada fallo y bloquea al llegar a 3; despues de correr la carpeta '5. Bloqueo por intentos fallidos' debes resetear manualmente intentos_login y estado en la base de datos para poder repetir la prueba.\n5. Para 403 BLOQUEADO/INACTIVO, ajusta usuarioBloqueado/usuarioInactivo a usuarios existentes con esos estados (o cambia el estado manualmente en la base de datos antes de correr esos requests).\n6. El servicio no requiere autenticacion previa para el propio login.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5139",
+      "type": "string"
+    },
+    {
+      "key": "usuarioValido",
+      "value": "admin",
+      "type": "string"
+    },
+    {
+      "key": "passwordValido",
+      "value": "Admin123*",
+      "type": "string"
+    },
+    {
+      "key": "usuarioInexistente",
+      "value": "usuario_no_existe",
+      "type": "string"
+    },
+    {
+      "key": "usuarioBloqueado",
+      "value": "usuario_bloqueado",
+      "type": "string"
+    },
+    {
+      "key": "usuarioInactivo",
+      "value": "usuario_inactivo",
+      "type": "string"
+    },
+    {
+      "key": "usuarioIntentosFallidos",
+      "value": "usuario_prueba_intentos",
+      "type": "string"
+    },
+    {
+      "key": "passwordIncorrecto",
+      "value": "ClaveIncorrecta1*",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Login exitoso",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario\": \"{{usuarioValido}}\",\n  \"password\": \"{{passwordValido}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+              "var body = pm.response.json();",
+              "pm.test('Envoltorio success/statusCode/message/data', function () {",
+              "  pm.expect(body.success).to.eql(true);",
+              "  pm.expect(body.statusCode).to.eql(200);",
+              "  pm.expect(body.message).to.eql('Inicio de sesión exitoso.');",
+              "  pm.expect(body).to.have.property('data');",
+              "});",
+              "pm.test('Trae token, usuario y roles', function () {",
+              "  pm.expect(body.data.token).to.be.a('string').and.not.empty;",
+              "  pm.expect(body.data).to.have.property('idUsuario');",
+              "  pm.expect(body.data).to.have.property('usuario');",
+              "  pm.expect(body.data).to.have.property('nombreCompleto');",
+              "  pm.expect(body.data).to.have.property('correo');",
+              "  pm.expect(body.data.roles).to.be.an('array');",
+              "});",
+              "if (pm.response.code === 200) {",
+              "  pm.collectionVariables.set('token', pm.response.json().data.token);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Validaciones de campos requeridos (400)",
+      "item": [
+        {
+          "name": "2.1 Sin campo usuario en el body - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"{{passwordValido}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 (ModelState invalido por [Required] en Usuario)', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.2 Sin campo password en el body - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioValido}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 (ModelState invalido por [Required] en Password)', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.3 Body vacio (sin usuario ni password) - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 (ModelState invalido, ambos campos requeridos)', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.4 Usuario y password vacios ('') - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"\",\n  \"password\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 (cadena vacia tambien invalida el [Required])', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.5 Usuario y password solo con espacios ('   ') - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"   \",\n  \"password\": \"   \"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400 (rechazado por AuthService: IsNullOrWhiteSpace)', function () { pm.response.to.have.status(400); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de credenciales incorrectas', function () {",
+                  "  pm.expect(body.message).to.eql('Usuario y/o contraseña incorrectos.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Credenciales incorrectas (401)",
+      "item": [
+        {
+          "name": "3.1 Usuario inexistente - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioInexistente}}\",\n  \"password\": \"CualquierClave1*\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de credenciales incorrectas', function () {",
+                  "  pm.expect(body.message).to.eql('Usuario y/o contraseña incorrectos.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.2 Password incorrecto (usuario valido) - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioValido}}\",\n  \"password\": \"{{passwordIncorrecto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de credenciales incorrectas', function () {",
+                  "  pm.expect(body.message).to.eql('Usuario y/o contraseña incorrectos.');",
+                  "});",
+                  "pm.test('No incluye token', function () { pm.expect(body.data).to.be.null; });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Usuario en estado especial (403)",
+      "item": [
+        {
+          "name": "4.1 Usuario bloqueado (estado BLOQUEADO) - 403",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioBloqueado}}\",\n  \"password\": \"CualquierClave1*\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 403', function () { pm.response.to.have.status(403); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de usuario bloqueado', function () {",
+                  "  pm.expect(body.message).to.eql('El usuario se encuentra bloqueado.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.2 Usuario inactivo (estado INACTIVO) - 403",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioInactivo}}\",\n  \"password\": \"CualquierClave1*\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 403', function () { pm.response.to.have.status(403); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de usuario inactivo', function () {",
+                  "  pm.expect(body.message).to.eql('El usuario se encuentra inactivo.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Bloqueo por intentos fallidos (403)",
+      "item": [
+        {
+          "name": "5.1 Intento fallido 1 de 3 - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioIntentosFallidos}}\",\n  \"password\": \"{{passwordIncorrecto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.2 Intento fallido 2 de 3 - 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioIntentosFallidos}}\",\n  \"password\": \"{{passwordIncorrecto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401', function () { pm.response.to.have.status(401); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.3 Intento fallido 3 de 3 - bloqueo automatico - 403",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioIntentosFallidos}}\",\n  \"password\": \"{{passwordIncorrecto}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 403', function () { pm.response.to.have.status(403); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de bloqueo por 3 intentos', function () {",
+                  "  pm.expect(body.message).to.eql('El usuario ha sido bloqueado por 3 intentos fallidos.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.4 Login con usuario ya bloqueado por intentos - 403",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario\": \"{{usuarioIntentosFallidos}}\",\n  \"password\": \"{{passwordValido}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 403 (aunque la password sea correcta, el usuario quedo BLOQUEADO)', function () { pm.response.to.have.status(403); });",
+                  "var body = pm.response.json();",
+                  "pm.test('Mensaje de usuario bloqueado', function () {",
+                  "  pm.expect(body.message).to.eql('El usuario se encuentra bloqueado.');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

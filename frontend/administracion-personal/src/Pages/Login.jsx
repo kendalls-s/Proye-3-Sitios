@@ -35,9 +35,7 @@ function Login() {
   const [cargando, setCargando] =
     useState(false);
 
-  // ==========================================
   // MENSAJES RECIBIDOS DESDE OTRAS RUTAS
-  // ==========================================
 
  useEffect(() => {
   if (location.state?.mensaje) {

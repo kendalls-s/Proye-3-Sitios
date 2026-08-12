@@ -1,7 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\kenda\\Downloads\\Proye-3-Sitios-main\\Proye-3-Sitios-main\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|c:\\users\\dence\\onedrive\\escritorio\\finalsitios\\srv_core1_listadopuestos\\srv_core1_listadopuestos\\repository\\puestorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BAD049D-86D1-B2F7-50F4-6EF59A1EAE60}|SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos.csproj|solutionrelative:srv_core1_listadopuestos\\srv_core1_listadopuestos\\repository\\puestorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\finalsitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\oferenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\oferenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\finalsitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\bitacorarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\repository\\bitacorarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|c:\\users\\dence\\onedrive\\escritorio\\finalsitios\\srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\oferentesaptosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30161488-5286-F0E2-FE37-3FEDDECC0E07}|SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos.csproj|solutionrelative:srv_core2_oferentesaptos\\srv_core2_oferentesaptos\\oferentesaptosendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PuestoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Repository\\PuestoRepository.cs",
+              "RelativeDocumentMoniker": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Repository\\PuestoRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Repository\\PuestoRepository.cs",
+              "RelativeToolTip": "SRV_Core1_ListadoPuestos\\SRV_Core1_ListadoPuestos\\Repository\\PuestoRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAwwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T01:37:05.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OferenteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\OferenteRepository.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T00:42:48.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BitacoraRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\Repository\\BitacoraRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T00:42:37.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OferentesAptosEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "RelativeDocumentMoniker": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "ToolTip": "C:\\Users\\dence\\OneDrive\\Escritorio\\FinalSitios\\SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "RelativeToolTip": "SRV_Core2_OferentesAptos\\SRV_Core2_OferentesAptos\\OferentesAptosEndpoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T00:42:33.815Z",
+              "EditorCaption": ""
             }
           ]
         }

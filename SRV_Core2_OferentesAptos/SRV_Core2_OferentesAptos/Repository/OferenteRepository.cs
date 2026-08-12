@@ -36,20 +36,26 @@ namespace Core2.OferentesAptos.Repository
         /// vista aplica el filtro de requisitos que aquí NO se desea. Así el cambio
         /// queda contenido en este microservicio y no altera la base compartida.
         /// </summary>
-        public async Task<IEnumerable<OferenteApto>> ObtenerAptosPorPuestoAsync(string codigoPuesto)
+        public async Task<IEnumerable<OferenteApto>> ObtenerAptosPorPuestoAsync(
+     string codigoPuesto)
         {
             const string sql = @"
-SELECT DISTINCT o.id_oferente     AS IdOferente,
-                o.identificacion  AS Identificacion,
-                o.nombre_completo AS NombreCompleto
-FROM postulacion po
-JOIN puesto   p ON p.id_puesto   = po.id_puesto
-JOIN oferente o ON o.id_oferente = po.id_oferente
-WHERE p.codigo = @Codigo
-ORDER BY o.nombre_completo;";
+        SELECT DISTINCT
+            v.id_oferente AS IdOferente,
+            v.identificacion AS Identificacion,
+            v.nombre_completo AS NombreCompleto
+        FROM vw_oferentes_aptos_puesto v
+        WHERE v.codigo_puesto = @Codigo
+        ORDER BY v.nombre_completo;";
 
             using var conn = _db.CreateConnection();
-            return await conn.QueryAsync<OferenteApto>(sql, new { Codigo = codigoPuesto });
+
+            return await conn.QueryAsync<OferenteApto>(
+                sql,
+                new
+                {
+                    Codigo = codigoPuesto
+                });
         }
     }
 }
